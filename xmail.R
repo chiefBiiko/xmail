@@ -1,4 +1,4 @@
-# xmail - extract email addresses from strings, files and webpages
+# xmail - extract email addresses from strings, files, and webpages
 
 # Returns all emails found in given inputs as a named list
 # @param {list.<character>} input List of plain strings, filepaths, URLs can be mixed
