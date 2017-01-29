@@ -1,7 +1,7 @@
-# xmail - extract email addresses from a string, file, or webpage
+# xmail - extract email addresses from strings, files and webpages
 
 # Returns all emails found in given inputs as a named list
-# @param {list.<character>} input List of plain strings, filepaths, URLs, can be mixed
+# @param {list.<character>} input List of plain strings, filepaths, URLs can be mixed
 # @return {list.<character>} Named list with extracted emails
 xmail <- function(input=list(NULL)) {
   stopifnot(!missing(input), is.list(input))
