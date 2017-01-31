@@ -1,7 +1,6 @@
-# xmail - extract email addresses from strings, files, and webpages
-# TODO: enhance performance on webpages
+# xmail - extract email addresses from strings and files
 # Returns all emails found in given inputs as a named list
-# @param {list.<character>} input List of plain strings, filepaths, URLs can be mixed
+# @param {list.<character>} input List of plain strings, filepaths, can be mixed
 # @return {list.<character>} Named list with extracted emails
 xmail <- function(input=list(NULL)) {
   stopifnot(!missing(input), is.list(input))
@@ -10,10 +9,6 @@ xmail <- function(input=list(NULL)) {
       CON <- file(s)
       on.exit(close(CON))
       c <- paste(readLines(CON, warn=F), collapse=' ')
-    } else if (grepl('^https?://[^\\.]+\\..+', s)) {
-      CON <- url(s)
-      on.exit(close(CON))
-      c <- gsub('<[^>]*>', ' ', paste(readLines(CON, warn=F), collapse=' '))
     } else if (typeof(s)=='character') {
       c <- paste(s, collapse=' ')
     } else { stop('invalid input!') }
