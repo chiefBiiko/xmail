@@ -9,9 +9,9 @@ xmail <- function(input=list(NULL)) {
       CON <- file(s)
       on.exit(close(CON))
       c <- paste(readLines(CON, warn=F), collapse=' ')
-    } else if (typeof(s)=='character') {
+    } else {
       c <- paste(s, collapse=' ')
-    } else { stop('invalid input!') }
+    }
     x <- list(unique(regmatches(c, gregexpr('[^\\.\\s@][^\\s@]*(?!\\.)@[^\\.\\s@]+(?:\\.[^\\.\\s@]+)*', c, perl=T))[[1]]))
     names(x) <- s
     return(x)
